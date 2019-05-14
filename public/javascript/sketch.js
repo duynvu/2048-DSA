@@ -22,7 +22,28 @@ function updateCanvas() {
     document.getElementById('score').innerHTML = score;
 }
 
+function keyPressed() {
+    let flipped = false;
+    let rotated = false;
+    let played = true;
 
+    if (keyCode === DOWN_ARROW) {
+        //Do nothing
+    } else if (keyCode === UP_ARROW) {
+        grid = flipGrid(grid);
+        flipped = true;
+    } else if (keyCode === RIGHT_ARROW) {
+        grid = rotateGrid(grid);
+        rotated = true;
+    } else if (keyCode === LEFT_ARROW) {
+        grid = rotateGrid(grid);
+        grid = flipGrid(grid);
+        rotated = true;
+        flipped = true;
+    } else {
+        played = false;
+    }
+}
 
 function drawGrid() {
     let w = 100;
