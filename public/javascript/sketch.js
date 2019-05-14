@@ -21,3 +21,34 @@ function updateCanvas() {
     drawGrid();
     document.getElementById('score').innerHTML = score;
 }
+
+
+
+function drawGrid() {
+    let w = 100;
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            noFill();
+            strokeWeight(2);
+            let val = grid[i][j];
+            let s = val.toString();
+            stroke(0);
+            if(val != 0) {
+                stroke(0);
+                fill(colorsAndSizes[s].color);
+            } else {
+                noFill();
+            }
+            
+            rect(i * w, j * w, w, w,8);
+
+            if (grid[i][j] !== 0) {
+                textAlign(CENTER,CENTER);
+                noStroke();
+                fill(0);
+                textSize(colorsAndSizes[s].size);
+                text(val, i * w + w / 2, j * w + w / 2);
+            }
+        }
+    }
+}
