@@ -43,6 +43,39 @@ function keyPressed() {
     } else {
         played = false;
     }
+
+    if (played) {
+        let past = copyGrid(grid);
+        for (let i = 0; i < 4; i++) {
+            grid[i] = operate(grid[i]);
+        }
+        let changed = compare(past, grid);
+
+        if (flipped) {
+            grid = flipGrid(grid);
+        }
+
+        if (rotated) {
+            grid = rotateGrid(grid);
+            grid = rotateGrid(grid);
+            grid = rotateGrid(grid);
+        }
+
+        if (changed) {
+            addNumber();
+        }
+        updateCanvas();
+
+        let gameover = isGameOver();
+        if (gameover) {
+            console.log("game over");
+        }
+
+        let gamewon = isGameWon();
+        if(gamewon) {
+            console.log("Game Won");
+        }
+    }
 }
 
 function drawGrid() {
