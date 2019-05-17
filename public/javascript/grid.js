@@ -9,6 +9,7 @@ function blankGrid() {
     ];
 }
 
+//add number to the grid
 function addNumber() {
     let options = [];
     for (let i = 0; i < 4; i++) {
