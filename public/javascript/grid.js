@@ -38,6 +38,20 @@ function slide(row) {
     return arr;
 }
 
+//combine two number
+function combine(row) {
+    for (let i = 3; i >= 1; i--) {
+        let a = row[i];
+        let b = row[i - 1];
+        if (a == b) {
+            row[i] = a + b;
+            score += row[i];
+            row[i - 1] = 0;
+        }
+    }
+    return row;
+}
+
 //compare each number in row
 function compare(a, b) {
     for (let i = 0; i < 4; i++) {
