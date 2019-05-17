@@ -29,6 +29,15 @@ function addNumber() {
     }
 }
 
+//making new array 
+function slide(row) {
+    let arr = row.filter(val => val);
+    let missing = 4 - arr.length;
+    let zeros = Array(missing).fill(0);
+    arr = zeros.concat(arr);
+    return arr;
+}
+
 //compare each number in row
 function compare(a, b) {
     for (let i = 0; i < 4; i++) {
