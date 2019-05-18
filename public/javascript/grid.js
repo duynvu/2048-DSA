@@ -63,3 +63,13 @@ function compare(a, b) {
     }
     return false;
 }
+
+function copyGrid(grid) {
+    let extra = blankGrid();
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            extra[i][j] = grid[i][j];
+        }
+    }
+    return extra;
+}
