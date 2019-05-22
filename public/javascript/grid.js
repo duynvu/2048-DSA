@@ -34,7 +34,7 @@ function slide(row) {
     let arr = row.filter(val => val);
     let missing = 4 - arr.length;
     let zeros = Array(missing).fill(0);
-    arr = zeros.concat(arr);
+    arr = zeros.concate(arr);
     return arr;
 }
 
@@ -72,4 +72,11 @@ function copyGrid(grid) {
         }
     }
     return extra;
+}
+
+function flipGrid(grid) {
+    for (let i = 0; i < 4; i++) {
+        grid[i].reverse();
+    }
+    return grid;
 }
