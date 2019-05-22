@@ -34,7 +34,7 @@ function slide(row) {
     let arr = row.filter(val => val);
     let missing = 4 - arr.length;
     let zeros = Array(missing).fill(0);
-    arr = zeros.concate(arr);
+    arr = zeros.concat(arr);
     return arr;
 }
 
