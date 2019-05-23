@@ -80,3 +80,13 @@ function flipGrid(grid) {
     }
     return grid;
 }
+
+function rotateGrid(grid) {
+    let newGrid = blankGrid();
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            newGrid[i][j] = grid[j][i];
+        }
+    }
+    return newGrid;
+}
