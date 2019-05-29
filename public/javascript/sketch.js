@@ -1,25 +1,26 @@
 let grid;
 let score = 0;
 
-function blankGrid() {
-    return [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-    ];
-}
-
 function setup() {
     const canvas = createCanvas(400, 400);
     canvas.parent('sketch-holder');
     grid = blankGrid();
+    addNumber();
+    addNumber();
+    updateCanvas();
 }
 
 function updateCanvas() {
     background(255);
     drawGrid();
     document.getElementById('score').innerHTML = score;
+}
+
+function operate(row) {
+    row = slide(row);
+    row = combine(row);
+    row = slide(row);
+    return row;
 }
 
 function keyPressed() {
