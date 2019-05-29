@@ -1,5 +1,3 @@
-let grid;
-
 function blankGrid() {
     return [
         [0, 0, 0, 0],
