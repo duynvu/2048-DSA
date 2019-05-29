@@ -11,6 +11,6 @@ app.get('/', function (req, res) {
   res.render("index");
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server start");
 })
