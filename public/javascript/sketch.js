@@ -12,8 +12,13 @@ function blankGrid() {
 
 function setup() {
     const canvas = createCanvas(400, 400);
+    console.log(canvas);
     canvas.parent('sketch-holder');
     grid = blankGrid();
+    noLoop();
+    addNumber();
+    addNumber();
+    updateCanvas();
 }
 
 function updateCanvas() {
