@@ -1,15 +1,37 @@
 let grid;
 let score = 0;
+let undoList=[];
+let undoCheck=false;
+
+function pushToList() {
+    if(undoList.length > 0 && undoCheck===true) {
+        undoCheck=false;
+        undoList = [copyGrid(grid)];
+    }
+    undoList.push(copyGrid(grid));
+}
+
+function undo() {
+    if(undoCheck === false) {
+        undoCheck=true;
+        undoList.pop();
+    }
+    if(undoList.length == 0) {
+        return ;
+    }
+    grid=undoList.pop();
+    updateCanvas();
+}
 
 function setup() {
     const canvas = createCanvas(400, 400);
-    console.log(canvas);
     canvas.parent('sketch-holder');
     grid = blankGrid();
     noLoop();
     addNumber();
     addNumber();
     updateCanvas();
+    pushToList();
 }
 
 function updateCanvas() {
@@ -66,6 +88,8 @@ function keyPressed() {
 
         if (changed) {
             addNumber();
+            pushToList();
+
         }
         updateCanvas();
 
