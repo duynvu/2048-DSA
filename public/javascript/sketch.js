@@ -1,25 +1,25 @@
 let grid;
 let score = 0;
-let undoList=[];
-let undoCheck=false;
+let undoList = [];
+let undoCheck = false;
 
 function pushToList() {
-    if(undoList.length > 0 && undoCheck===true) {
-        undoCheck=false;
+    if (undoList.length > 0 && undoCheck === true) {
+        undoCheck = false;
         undoList = [copyGrid(grid)];
     }
     undoList.push(copyGrid(grid));
 }
 
 function undo() {
-    if(undoCheck === false) {
-        undoCheck=true;
+    if (undoCheck === false) {
+        undoCheck = true;
         undoList.pop();
     }
-    if(undoList.length == 0) {
-        return ;
+    if (undoList.length == 0) {
+        return;
     }
-    grid=undoList.pop();
+    grid = undoList.pop();
     updateCanvas();
 }
 
@@ -99,32 +99,35 @@ function keyPressed() {
         }
 
         let gamewon = isGameWon();
-        if(gamewon) {
+        if (gamewon) {
             console.log("Game Won");
         }
     }
 }
 
 function drawGrid() {
+    background(220);
     let w = 100;
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
-            noFill();
-            strokeWeight(2);
+            // noFill();
+            // strokeWeight(2);
             let val = grid[i][j];
             let s = val.toString();
-            stroke(0);
-            if(val != 0) {
-                stroke(0);
+            strokeWeight(15);
+            stroke('#bbada0');
+            if (val != 0) {
+                // stroke(0);
                 fill(colorsAndSizes[s].color);
             } else {
-                noFill();
+                // noFill();
+                fill(colorsAndSizes[0].color);
             }
-            
-            rect(i * w, j * w, w, w,8);
+
+            rect(i * w, j * w, w, w);
 
             if (grid[i][j] !== 0) {
-                textAlign(CENTER,CENTER);
+                textAlign(CENTER, CENTER);
                 noStroke();
                 fill(0);
                 textSize(colorsAndSizes[s].size);
