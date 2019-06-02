@@ -6,9 +6,9 @@ let undoCheck = false;
 function pushToList() {
     if (undoList.length > 0 && undoCheck === true) {
         undoCheck = false;
-        undoList = [copyGrid(grid)];
+        undoList = [[copyGrid(grid), score]];
     }
-    undoList.push(copyGrid(grid));
+    undoList.push([copyGrid(grid), score]);
 }
 
 function undo() {
@@ -19,7 +19,7 @@ function undo() {
     if (undoList.length == 0) {
         return;
     }
-    grid = undoList.pop();
+    [grid, score] = undoList.pop();
     updateCanvas();
 }
 
