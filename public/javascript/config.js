@@ -45,7 +45,7 @@ let colorsAndSizes = {
     },
     "2048": {
         size: 20,
-        color: "#edc22e"
+        color: "#f6ff00"
     },
 
 }

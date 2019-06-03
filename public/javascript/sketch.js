@@ -1,4 +1,4 @@
-import swal from 'sweetalert';
+
 
 
 let grid;
@@ -98,12 +98,24 @@ function keyPressed() {
 
         let gameover = isGameOver();
         if (gameover) {
-            console.log("game over")
+            console.log("Game over");
+            swal({
+                title: "Awwwww :(",
+                text: "Nothing left to move!",
+                icon: "error",
+                button: "Let me play againnnnnnn!",
+              });
         }
 
         let gamewon = isGameWon();
         if (gamewon) {
-            swal("Well done!", "You have won this game!", "success");
+            console.log("Game win");
+            swal({
+                title: "Congratulations!",
+                text: "You have won the game!",
+                icon: "success",
+                button: "Awwww, too easy!",
+              });
         }
     }
 }
