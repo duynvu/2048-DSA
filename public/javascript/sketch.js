@@ -1,10 +1,7 @@
-
-
-
 let grid;
-let score = 0;
-let undoList = [];
-let undoCheck = false;
+let score;
+let undoList;
+let undoCheck;
 
 function pushToList() {
     if (undoList.length > 0 && undoCheck === true) {
@@ -26,7 +23,16 @@ function undo() {
     updateCanvas();
 }
 
+function resetGame() {
+    score = 0;
+    setup();
+    
+}
+
 function setup() {
+    undoList = [];
+    undoCheck = false;
+    score = 0;
     const canvas = createCanvas(400, 400);
     canvas.parent('sketch-holder');
     grid = blankGrid();
@@ -104,7 +110,10 @@ function keyPressed() {
                 text: "Nothing left to move!",
                 icon: "error",
                 button: "Let me play againnnnnnn!",
-              });
+            }).then(() => {
+                console.log("ok");
+                resetGame()
+            });;
         }
 
         let gamewon = isGameWon();
@@ -115,7 +124,10 @@ function keyPressed() {
                 text: "You have won the game!",
                 icon: "success",
                 button: "Awwww, too easy!",
-              });
+            }).then(() => {
+                console.log("ok");
+                resetGame()
+            });
         }
     }
 }
