@@ -1,3 +1,6 @@
+import swal from 'sweetalert';
+
+
 let grid;
 let score = 0;
 let undoList = [];
@@ -95,12 +98,12 @@ function keyPressed() {
 
         let gameover = isGameOver();
         if (gameover) {
-            console.log("game over");
+            console.log("game over")
         }
 
         let gamewon = isGameWon();
         if (gamewon) {
-            console.log("Game Won");
+            swal("Well done!", "You have won this game!", "success");
         }
     }
 }
